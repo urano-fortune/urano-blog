@@ -5,43 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ウラーノオススメ大人気先生ご紹介</title>
     <style>
-        /* 全体リセットと背景（ディープグリーンと星空のイメージ） */
+        /* 全体リセットと生成された背景画像の設定 */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            background-color: #061e14;
-            background-image: 
-                radial-gradient(circle at 50% 20%, #0d3a27 0%, #051910 80%),
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
-            background-size: 100% 100%, 200px 200px, 150px 150px;
-            background-distribute: specular;
+            background-image: url("bg.png"); /* アップロードする画像名 */
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed; /* スクロールしても星空が固定されるエフェクト */
+            background-color: #03140e; /* 保険用の暗い緑 */
             color: #ffffff;
             line-height: 1.8;
             padding: 0;
         }
 
-        /* アプリ内表示を想定したコンテナ */
+        /* アプリ内表示に最適化した縦長コンテナ */
         .wrapper {
             width: 100%;
             max-width: 480px;
             margin: 0 auto;
-            background: rgba(5, 25, 16, 0.85);
+            background: rgba(3, 20, 14, 0.75); /* 背景のきらめきをうっすら透かす絶妙な透過率 */
             padding-bottom: 60px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.7);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            min-height: 100vh;
         }
 
-        /* 1枚目：上部装飾（カーテン・ガーランド風） */
+        /* 上部装飾エリア */
         .top-deco {
             text-align: center;
-            padding-top: 25px;
-            background: linear-gradient(to bottom, rgba(10,48,32,0.8), transparent);
-            position: relative;
+            padding-top: 40px;
         }
         
-        /* 金色の星・チェーンのラインを再現した飾り線 */
+        /* 金色の星の飾り線 */
         .gold-line {
             display: flex;
             justify-content: center;
@@ -59,117 +54,105 @@
             color: #d4af37;
         }
 
-        /* 1. 先生のキャッチコピー */
+        /* 1. 先生のキャッチコピー（グラデーション文字） */
         .catch-copy {
-            font-size: 18px;
+            font-size: 19px;
             font-weight: bold;
             text-align: center;
-            background: linear-gradient(to right, #ff99ff, #ffffff, #ff99ff);
+            background: linear-gradient(to right, #ffb3ff, #ffffff, #ffb3ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 15px 20px;
             letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(255,153,255,0.3);
+            text-shadow: 0 0 15px rgba(255,179,255,0.4);
         }
 
-        /* 2. 先生の画像エリア（黄金の光の輪） */
+        /* 2. 先生の画像エリア（背景のゴールドの輪と重なる位置） */
         .avatar-container {
-            width: 200px;
-            height: 200px;
-            margin: 30px auto 20px;
+            width: 180px;
+            height: 180px;
+            margin: 20px auto 15px;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        /* 外側の光る輪 */
-        .avatar-container::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 3px solid #d4af37;
-            box-shadow: 0 0 20px #d4af37, inset 0 0 20px #d4af37;
-            opacity: 0.8;
-            animation: rotate 20s linear infinite;
-        }
         .avatar-img {
-            width: 170px;
-            height: 170px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #fff;
-            background-color: #111;
-            z-index: 2;
+            border: 2px solid #e5c07b;
+            box-shadow: 0 0 15px rgba(229,192,123,0.5);
+            background-color: #061e14;
         }
 
         /* 3. 先生の名前 */
         .teacher-name {
-            font-size: 24px;
+            font-size: 25px;
             font-weight: bold;
             text-align: center;
             color: #ffffff;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
-        .teacher-name::before { content: "✨ "; color: #d4af37; }
-        .teacher-name::after { content: " ✨"; color: #d4af37; }
+        .teacher-name::before { content: "✨ "; color: #e5c07b; }
+        .teacher-name::after { content: " ✨"; color: #e5c07b; }
 
-        /* メッセージ共通枠 */
+        /* メッセージボックス（高級感を出すための外枠） */
         .message-section {
-            margin: 40px 25px;
-            padding: 30px 20px;
-            background: rgba(10, 40, 25, 0.6);
-            border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.1);
+            margin: 35px 20px;
+            padding: 25px 20px;
+            background: rgba(255, 255, 255, 0.07); /* 白を少し混ぜた半透明で高級感を演出 */
+            border-radius: 16px;
+            border: 1px solid rgba(229, 192, 123, 0.25);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         .section-title {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: bold;
             text-align: center;
             color: #e5c07b;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             letter-spacing: 1px;
-            text-shadow: 0 0 5px rgba(229,192,123,0.5);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
         .message-text {
             font-size: 14px;
-            color: #e2e8f0;
+            color: #f7fafc;
             text-align: justify;
             white-space: pre-wrap;
+            letter-spacing: 0.5px;
         }
 
-        /* 重要ワードのハイライト（2枚目の黄色文字の再現） */
+        /* 黄色文字のハイライト指定（2枚目風） */
         .highlight {
             color: #f6e05e;
             font-weight: bold;
-            text-shadow: 0 0 8px rgba(246,224,94,0.4);
+            text-shadow: 0 0 6px rgba(246,224,94,0.3);
         }
 
-        /* 下部ボタン（LTV導線） */
+        /* 下部ボタン（相談への導線） */
         .action-area {
             text-align: center;
             margin-top: 40px;
+            padding: 0 20px;
         }
         .btn-chat {
             display: inline-block;
-            background: linear-gradient(135deg, #d4af37 0%, #aa8513 100%);
-            color: #051910;
+            width: 100%;
+            max-width: 320px;
+            background: linear-gradient(135deg, #e5c07b 0%, #b89229 100%);
+            color: #03140e;
             text-decoration: none;
             font-weight: bold;
             font-size: 16px;
-            padding: 14px 45px;
+            padding: 15px 0;
             border-radius: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4), 0 0 10px rgba(212,175,55,0.4);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
             letter-spacing: 1px;
-        }
-
-        /* 飾り輪の回転アニメーション */
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            transition: transform 0.2s;
         }
     </style>
 </head>
