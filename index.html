@@ -9,34 +9,38 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            background-color: #03140e; /* 保険用の暗い緑 */
+            background-color: #03140e; /* 画像が切れた先のベースとなる背景色 */
             color: #ffffff;
             line-height: 1.8;
             padding: 0;
         }
 
-        /* 🌟 アプリ内表示に最適化した縦長コンテナ（ここに新しい画像を背景として設定） */
+        /* アプリ内表示に最適化した縦長コンテナ */
         .wrapper {
             width: 100%;
             max-width: 480px;
             margin: 0 auto;
             
-            /* 👇 新しい画像を背景として設定。スクロールしても背景が固定されるようにします */
-            background-image: url("curtain.png"); 
-            background-size: 100% auto; /* 縦長画面の横幅にぴったり合わせる */
+            /* 🌟 修正ポイント：画像の下端を、背景色（#03140e）へ自然にグラデーションで溶け込ませる指定 */
+            background-image: 
+                linear-gradient(to bottom, rgba(3, 20, 14, 0) 60%, #03140e 95%), /* 下部を滑らかに暗くするマスク */
+                url("curtain.png"); 
+            background-size: 100% auto; 
             background-position: center top;
             background-repeat: no-repeat;
-            background-attachment: scroll; /* アプリ内ブラウザでバグりにくいスクロール連動 */
+            
+            /* 🌟 修正ポイント：画像の下に広がるベタ塗り部分も、少し星空の質感を残すための保険 */
+            background-color: #03140e; 
             
             padding-bottom: 60px;
             box-shadow: 0 0 30px rgba(0,0,0,0.8);
             min-height: 100vh;
         }
 
-        /* 🌟 上部装飾エリア：シャンデリアの真下に文字が来るよう調整 */
+        /* 上部装飾エリア：シャンデリアの真下に文字が来るよう調整 */
         .top-deco {
             text-align: center;
-            padding-top: 240px; /* 👈 シャンデリアと飾りの高さを避ける絶妙な余白 */
+            padding-top: 240px; 
         }
 
         /* 1. 先生のキャッチコピー（グラデーション文字） */
@@ -67,7 +71,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #e5c07b;
-            box-shadow: 0 0 25px rgba(229,192,123,0.6); /* 👈 背景に合わせて光を少し強めに */
+            box-shadow: 0 0 25px rgba(229,192,123,0.6); 
             background-color: #061e14;
         }
 
@@ -79,18 +83,18 @@
             color: #ffffff;
             margin-bottom: 35px;
             letter-spacing: 2px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.9); /* 文字が星空に埋もれないように影を強化 */
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9); 
         }
         .teacher-name::before { content: "✨ "; color: #e5c07b; }
         .teacher-name::after { content: " ✨"; color: #e5c07b; }
 
-        /* メッセージボックス：背景が綺麗に見えるよう、ほんの少し透明度をアップ */
+        /* メッセージボックス：下部の背景色と一体感を持たせる */
         .message-section {
             margin: 30px 20px;
             padding: 25px 20px;
-            background: rgba(3, 20, 14, 0.75); /* 👈 文字が読みやすいよう暗めのシースルーに */
+            background: rgba(4, 32, 22, 0.85); /* 👈 下部の暗い背景に負けないよう少しだけ不透明度をアップ */
             border-radius: 16px;
-            border: 1px solid rgba(229, 192, 123, 0.25);
+            border: 1px solid rgba(229, 192, 123, 0.2);
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
         .section-title {
@@ -141,7 +145,6 @@
 </head>
 <body>
 
-<!-- 🌟HTMLの構造をすっきりシンプルに。余計な<img>タグを無くしました -->
 <div class="wrapper">
 
     <div class="top-deco">
