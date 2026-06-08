@@ -62,18 +62,27 @@
             align-items: center;
         }
 
-        /* 🌟 後ろに配置する魔法陣 */
-        .magic-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1; /* 写真の後ろ側 */
-            pointer-events: none; /* タップの邪魔をしない設定 */
-            opacity: 0.9; /* 必要に応じてうっすらさせたい場合は0.7〜0.8に下げてください */
-        }
-
+/* 🌟 後ろに配置する魔法陣（修正版） */
+.magic-bg {
+    position: absolute;
+    z-index: 1; /* 写真の後ろ側 */
+    pointer-events: none;
+    opacity: 0.9;
+    
+    /* 👇 魔法陣を正円のまま中央に配置するための指定 */
+    width: 100%;            /* コンテナ（.avatar-container）の横幅に合わせる */
+    height: 100%;           /* コンテナの高さに合わせる */
+    
+    /* 🌟 ここが重要！画像を歪ませずに正円（ドーナツ型）で表示 */
+    object-fit: contain;     /* 画像全体が枠に収まるように自動調整。歪み防止 */
+    
+    /* 🌟 格子模様を綺麗に消して背景に馴染ませる */
+    border-radius: 50%;      /* 四角い格子を丸くくり抜く */
+    mix-blend-mode: screen;  /* 黒や暗い背景部分を透明化して溶け込ませる */
+    
+    /* 🌟 万が一ズレた時用の中央寄せ（object-fitと併用で完璧に中央へ） */
+    object-position: center; 
+}
         /* 🌟 手前に乗せる先生の顔写真 */
         .avatar-img {
             width: 140px;   /* 魔法陣の内側の丸に綺麗にはまるサイズに微調整 */
