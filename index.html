@@ -5,53 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ウラーノオススメ大人気先生ご紹介</title>
     <style>
-        /* 全体リセットと生成された背景画像の設定 */
+        /* 全体リセット */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            background-image: url("bg.png"); 
-            background-size: cover;
-            background-position: center top;
-            background-attachment: fixed; 
-            background-color: #03140e; 
+            background-color: #03140e; /* 保険用の暗い緑 */
             color: #ffffff;
             line-height: 1.8;
             padding: 0;
         }
 
-        /* アプリ内表示に最適化した縦長コンテナ */
+        /* 🌟 アプリ内表示に最適化した縦長コンテナ（ここに新しい画像を背景として設定） */
         .wrapper {
             width: 100%;
             max-width: 480px;
             margin: 0 auto;
-            background: rgba(3, 20, 14, 0.75); 
+            
+            /* 👇 新しい画像を背景として設定。スクロールしても背景が固定されるようにします */
+            background-image: url("curtain.png"); 
+            background-size: 100% auto; /* 縦長画面の横幅にぴったり合わせる */
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-attachment: scroll; /* アプリ内ブラウザでバグりにくいスクロール連動 */
+            
             padding-bottom: 60px;
             box-shadow: 0 0 30px rgba(0,0,0,0.8);
             min-height: 100vh;
-            position: relative; /* 子要素の基準位置用 */
         }
 
-        /* 🌟 装飾カーテン：常にwrapperの一番上に合わせて配置 */
-        .curtain-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* 🌟 上部装飾エリア：新しいカーテンの長さに合わせて位置を自動調整 */
+        /* 🌟 上部装飾エリア：シャンデリアの真下に文字が来るよう調整 */
         .top-deco {
             text-align: center;
-            position: relative;
-            z-index: 2;
-            padding-top: 140px; /* 👈 カーテンの星飾りの下に文字が来るよう余白を広げました */
+            padding-top: 240px; /* 👈 シャンデリアと飾りの高さを避ける絶妙な余白 */
         }
 
         /* 1. 先生のキャッチコピー（グラデーション文字） */
         .catch-copy {
-            font-size: 19px;
+            font-size: 18px;
             font-weight: bold;
             text-align: center;
             background: linear-gradient(to right, #ffb3ff, #ffffff, #ffb3ff);
@@ -62,13 +52,11 @@
             text-shadow: 0 0 15px rgba(255,179,255,0.4);
         }
 
-        /* 2. 先生の画像エリア：カーテンと絶対に被らない位置に調整 */
+        /* 2. 先生の画像エリア：星雲の一番光っている中心に配置 */
         .avatar-container {
             width: 180px;
             height: 180px;
-            margin: 30px auto 15px; /* 👈 上の余白を20pxから30pxへ少し広げてバランス調整 */
-            position: relative;
-            z-index: 2; /* カーテンより手前に表示 */
+            margin: 20px auto 15px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -79,7 +67,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #e5c07b;
-            box-shadow: 0 0 15px rgba(229,192,123,0.5);
+            box-shadow: 0 0 25px rgba(229,192,123,0.6); /* 👈 背景に合わせて光を少し強めに */
             background-color: #061e14;
         }
 
@@ -91,23 +79,19 @@
             color: #ffffff;
             margin-bottom: 35px;
             letter-spacing: 2px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-            position: relative;
-            z-index: 2;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9); /* 文字が星空に埋もれないように影を強化 */
         }
         .teacher-name::before { content: "✨ "; color: #e5c07b; }
         .teacher-name::after { content: " ✨"; color: #e5c07b; }
 
-        /* メッセージボックス */
+        /* メッセージボックス：背景が綺麗に見えるよう、ほんの少し透明度をアップ */
         .message-section {
-            margin: 35px 20px;
+            margin: 30px 20px;
             padding: 25px 20px;
-            background: rgba(255, 255, 255, 0.07); 
+            background: rgba(3, 20, 14, 0.75); /* 👈 文字が読みやすいよう暗めのシースルーに */
             border-radius: 16px;
             border: 1px solid rgba(229, 192, 123, 0.25);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 2;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
         .section-title {
             font-size: 17px;
@@ -138,8 +122,6 @@
             text-align: center;
             margin-top: 40px;
             padding: 0 20px;
-            position: relative;
-            z-index: 2;
         }
         .btn-chat {
             display: inline-block;
@@ -159,12 +141,9 @@
 </head>
 <body>
 
+<!-- 🌟HTMLの構造をすっきりシンプルに。余計な<img>タグを無くしました -->
 <div class="wrapper">
 
-    <!-- 🌟 クラス名をつけてスタイル管理しやすく変更 -->
-    <img src="curtain.png" alt="装飾カーテン" class="curtain-img">
-
-    <!-- 🌟 padding-topをCSS側で一括制御するためにインラインスタイルを削除 -->
     <div class="top-deco">
         <h1 class="catch-copy">ウラーノオススメ★リピート率の高い大人気先生</h1>
     </div>
