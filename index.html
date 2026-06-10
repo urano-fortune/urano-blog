@@ -86,29 +86,26 @@
             background-color: #061e14;
         }
 
-        /* 🌟 3. 先生の名前：見やすさ抜群の「背景ラベル付き」に進化 */
+        /* 🌟 3. 先生の名前：縦幅を薄くし、位置を少し下げて微調整 */
         .teacher-name-box {
             width: 100%;
-            /* 👈 背景のキラキラと文字を分離する、高級感のある深緑のシースルー帯 */
             background: linear-gradient(to right, rgba(2, 20, 13, 0) 0%, rgba(2, 20, 13, 0.8) 25%, rgba(2, 20, 13, 0.8) 75%, rgba(2, 20, 13, 0) 100%);
-            padding: 10px 0;
-            margin-top: 15px;
-            margin-bottom: 35px;
+            
+            padding: 6px 0;         /* 👈 縦幅を狭くするために10pxから6pxへスリム化 */
+            margin-top: 25px;       /* 👈 ゴールド枠と被らないように、15pxから25pxへ広げて下へ移動 */
+            margin-bottom: 30px;    /* 👈 下のメッセージボックスとの間隔調整 */
+            
             text-align: center;
         }
         
         .teacher-name {
-            font-size: 26px;
+            font-size: 25px;        /* 👈 帯に合わせて文字も1pxだけスマートに */
             font-weight: bold;
             display: inline-block;
             letter-spacing: 2px;
-            
-            /* 👈 お名前も白文字からリッチなゴールドグラデーションに変更 */
             background: linear-gradient(to bottom, #ffffff 0%, #ffeaa7 45%, #d4af37 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            
-            /* 文字の輪郭をさらにクッキリさせる影 */
             filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.8));
         }
 
@@ -200,7 +197,7 @@
 
 <span class="highlight">「話したい時にすぐ相談できる。」</span>その安心感はケアアプリでも随一の先生となっています。さらに、占いや思念解読に加えて、yoko先生は高い<span class="highlight">"傾聴力"</span>をお持ちです。
 
-相談者様のお気持ちに寄り添いながら、丁寧向き合われるその姿勢が多くの方に深い安心と信頼を届けています。ぜひ一度、ご相談ください。</div>
+相談者様のお気持ちに寄り添いながら、丁寧に向き合われるその姿勢が多くの方に深い安心と信頼を届けています。ぜひ一度、ご相談ください。</div>
     </div>
 
     <div class="action-area">
