@@ -7,38 +7,41 @@
     <style>
         /* 全体リセット */
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        /* 🌟 body：画像ページ全体に埋め込む設定に変更 */
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            background-color: #020c08; /* 万が一のための極暗エメラルド */
+            
+            /* 背景を画面全体に固定して敷き詰める */
+            background-image: url("haikei B.png"); 
+            background-size: cover;        /* 画面の縦横比に合わせて自動で全体を覆う */
+            background-position: center top;
+            background-attachment: fixed;  /* スクロールしても背景の宇宙がズレない固定エフェクト */
+            background-color: #020c08; 
+            
             color: #ffffff;
             line-height: 1.8;
             padding: 0;
         }
 
-        /* 🌟 アプリ内表示に最適化した縦長コンテナ */
+        /* アプリ内表示に最適化した縦長コンテナ（中央のコンテンツ枠） */
         .wrapper {
             width: 100%;
             max-width: 480px;
             margin: 0 auto;
             
-            /* 🌟 2枚目の縦長画像を背景に設定 */
-            background-image: url("haikei B.png"); 
-            background-size: 100% auto; /* 横幅を画面にぴったり合わせる */
-            background-position: center top;
-            background-repeat: no-repeat;
-            
-            /* 画像の下端（スクロールした先）も自然に続くように背景色を同化 */
-            background-color: #03130e; 
+            /* 🌟 bodyの宇宙が綺麗に透けて見えるように透過率を調整 */
+            background: rgba(2, 12, 8, 0.4); 
             
             padding-bottom: 80px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.9);
+            box-shadow: 0 0 40px rgba(0,0,0,0.8);
             min-height: 100vh;
         }
 
-        /* 🌟 上部装飾エリア：シャンデリアの真下に文字が来るよう調整 */
+        /* 上部装飾エリア：シャンデリアの真下に文字が来るよう調整 */
         .top-deco {
             text-align: center;
-            padding-top: 135px; /* 👈 シャンデリアのすぐ下に文字が乗る絶妙な高さ */
+            padding-top: 135px; /* シャンデリアのすぐ下に文字が乗る高さ */
         }
 
         /* 1. 先生のキャッチコピー（グラデーション文字） */
@@ -54,11 +57,11 @@
             text-shadow: 0 0 15px rgba(255,179,255,0.4);
         }
 
-        /* 2. 先生の画像エリア：カーテンが開いた先の「光の舞台」に配置 */
+        /* 2. 先生の画像エリア：光のステージに配置 */
         .avatar-container {
             width: 180px;
             height: 180px;
-            margin: 25px auto 10px; /* 👈 背景の光の輪（スポットライト）に重ねる位置 */
+            margin: 25px auto 10px; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -79,21 +82,20 @@
             font-weight: bold;
             text-align: center;
             color: #ffffff;
-            margin-bottom: 45px; /* 👈 メッセージボックスとの間隔を少し広げて銀河を見せる */
+            margin-bottom: 45px; 
             letter-spacing: 2px;
             text-shadow: 0 2px 8px rgba(0,0,0,0.9); 
         }
         .teacher-name::before { content: "✨ "; color: #e5c07b; }
         .teacher-name::after { content: " ✨"; color: #e5c07b; }
 
-        /* メッセージボックス：美しい宇宙空間が透けて見えるシースルー仕様 */
+        /* メッセージボックス：背後の宇宙と一体化するシースルー */
         .message-section {
             margin: 25px 20px;
             padding: 25px 20px;
-            /* 👈 左右の銀河や星くずが綺麗に透けるよう、高級感のある透過率に調整 */
-            background: rgba(3, 20, 14, 0.65); 
+            background: rgba(3, 20, 14, 0.7); /* 文字の読みやすさをキープしつつ透過 */
             border-radius: 16px;
-            border: 1px solid rgba(229, 192, 123, 0.2);
+            border: 1px solid rgba(229, 192, 123, 0.25);
             box-shadow: 0 4px 25px rgba(0,0,0,0.6);
         }
         .section-title {
