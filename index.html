@@ -8,92 +8,122 @@
         /* 全体リセット */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* 🌟 body：画像ページ全体に埋め込む設定に変更 */
+        /* 🌟 body：1枚目の星空画像を画面全体に固定で敷き詰める */
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-            
-            /* 背景を画面全体に固定して敷き詰める */
-            background-image: url("haikei B.png"); 
-            background-size: cover;        /* 画面の縦横比に合わせて自動で全体を覆う */
+            background-image: url("bg.png"); 
+            background-size: cover;
             background-position: center top;
-            background-attachment: fixed;  /* スクロールしても背景の宇宙がズレない固定エフェクト */
+            background-attachment: fixed; /* スクロールしても背景の星空が動かないエフェクト */
             background-color: #020c08; 
-            
             color: #ffffff;
             line-height: 1.8;
             padding: 0;
         }
 
-        /* アプリ内表示に最適化した縦長コンテナ（中央のコンテンツ枠） */
+        /* 🌟 wrapper：スマホ枠。2枚目のデザイン画像をここに埋め込む */
         .wrapper {
             width: 100%;
             max-width: 480px;
             margin: 0 auto;
             
-            /* 🌟 bodyの宇宙が綺麗に透けて見えるように透過率を調整 */
-            background: rgba(2, 12, 8, 0.4); 
+            /* 2枚目の画像をスマホ枠の背景として設定 */
+            background-image: url("design.png");
+            background-size: 100% auto; /* 横幅ぴったりに合わせる */
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-color: transparent; /* 下部はbodyの星空をそのまま透過させる */
             
             padding-bottom: 80px;
             box-shadow: 0 0 40px rgba(0,0,0,0.8);
             min-height: 100vh;
         }
 
-        /* 上部装飾エリア：シャンデリアの真下に文字が来るよう調整 */
+        /* 上部装飾エリア：目標デザインの文字位置に合わせる調整 */
         .top-deco {
             text-align: center;
-            padding-top: 135px; /* シャンデリアのすぐ下に文字が乗る高さ */
+            padding-top: 55px; /* 👈 カーテンの紐飾りのすぐ下に文字が来るよう調整 */
         }
 
-        /* 1. 先生のキャッチコピー（グラデーション文字） */
+        /* 1. 先生のキャッチコピー（目標デザイン風の高級ゴールド文字） */
         .catch-copy {
             font-size: 18px;
             font-weight: bold;
             text-align: center;
-            background: linear-gradient(to right, #ffb3ff, #ffffff, #ffb3ff);
+            /* 👈 目標デザインに合わせた上品なアンティークゴールドのグラデーション */
+            background: linear-gradient(to bottom, #ffeaa7 0%, #dfe6e9 50%, #d4af37 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin: 10px 20px;
+            margin: 0 20px;
+            letter-spacing: 2px;
+            line-height: 1.4;
+            /* 文字の境界をくっきりさせて視認性を上げる影 */
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.9));
+        }
+        /* 2段目の「思念解読スペシャリスト」を少し大きく強調 */
+        .catch-copy span {
+            font-size: 24px;
+            display: block;
+            margin-top: 2px;
             letter-spacing: 1px;
-            text-shadow: 0 0 15px rgba(255,179,255,0.4);
         }
 
-        /* 2. 先生の画像エリア：光のステージに配置 */
+        /* 2. 🌟 先生の画像エリア：背景のゴールド枠の内側にぴったりはめ込む */
         .avatar-container {
-            width: 180px;
-            height: 180px;
-            margin: 25px auto 10px; 
+            width: 250px; /* 👈 背景のゴールド丸枠の大きさに合わせたサイズ */
+            height: 250px;
+            margin: 30px auto 10px; /* 👈 枠の位置にジャストフィットさせるマージン */
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .avatar-img {
-            width: 160px;
-            height: 160px;
+            width: 196px;  /* 👈 ゴールド枠の「内側の黒い円」にぴったり収まる絶妙なサイズ */
+            height: 196px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #e5c07b;
-            box-shadow: 0 0 25px rgba(229,192,123,0.6); 
+            position: relative;
+            
+            /* ⚠️ 重要：背景（design.png）に描かれているゴールドのフチや
+               飛び出している星のきらめきエフェクトを写真の上に被せるため、
+               あえて写真を背景画像の「裏側（奥）」に潜り込ませます */
+            z-index: -1; 
+            
             background-color: #061e14;
         }
 
         /* 3. 先生の名前 */
         .teacher-name {
-            font-size: 25px;
+            font-size: 26px;
             font-weight: bold;
             text-align: center;
             color: #ffffff;
+            margin-top: 15px;
             margin-bottom: 45px; 
             letter-spacing: 2px;
+            /* 目標デザインと同じゴールドの星を再現 */
             text-shadow: 0 2px 8px rgba(0,0,0,0.9); 
         }
-        .teacher-name::before { content: "✨ "; color: #e5c07b; }
-        .teacher-name::after { content: " ✨"; color: #e5c07b; }
+        .teacher-name::before { content: "✨ "; color: #ffeaa7; }
+        .teacher-name::after { content: " ✨"; color: #ffeaa7; }
+        
+        /* 名前の下の英語表記 */
+        .teacher-name-en {
+            font-size: 14px;
+            font-weight: normal;
+            color: #ffeaa7;
+            letter-spacing: 3px;
+            display: block;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
 
-        /* メッセージボックス：背後の宇宙と一体化するシースルー */
+        /* メッセージボックス：背後の宇宙が綺麗に透けるシースルー */
         .message-section {
             margin: 25px 20px;
             padding: 25px 20px;
-            background: rgba(3, 20, 14, 0.7); /* 文字の読みやすさをキープしつつ透過 */
+            background: rgba(3, 20, 14, 0.7); 
             border-radius: 16px;
             border: 1px solid rgba(229, 192, 123, 0.25);
             box-shadow: 0 4px 25px rgba(0,0,0,0.6);
@@ -149,14 +179,20 @@
 <div class="wrapper">
 
     <div class="top-deco">
-        <h1 class="catch-copy">ウラーノオススメ★リピート率の高い大人気先生</h1>
+        <h1 class="catch-copy">
+            殿堂入り
+            <span>思念解読スペシャリスト</span>
+        </h1>
     </div>
 
     <div class="avatar-container">
-        <img class="avatar-img" src="https://via.placeholder.com/150" alt="先生のお写真">
+        <img class="avatar-img" src="https://via.placeholder.com/200" alt="先生のお写真">
     </div>
 
-    <div class="teacher-name">yoko 先生</div>
+    <div class="teacher-name">
+        yoko 先生
+        <span class="teacher-name-en">Yoko Teacher</span>
+    </div>
 
     <div class="message-section">
         <h2 class="section-title">先生からのメッセージ</h2>
