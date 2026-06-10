@@ -33,12 +33,12 @@
             flex-direction: column;
         }
 
-        /* 🌟 【超重要】上部ステージエリア：縦横比を完全に固定してズレを撲滅するベース */
+        /* 🌟 【スマホ特化】上部ステージエリア：縦横比をスマホ画面の実績値にジャストフィット */
         .stage-container {
             width: 100%;
             position: relative;
-            /* 👈 design.pngの縦横比（横480px、縦約538px想定）に合わせた、最もズレない比率の高さ設定 */
-            aspect-ratio: 480 / 538; 
+            /* 👈 スマホのスクリーンショット画像から割り出した、最もズレない比率に変更 */
+            aspect-ratio: 480 / 560; 
             background-image: url("design.png");
             background-size: 100% 100%;
             background-position: center top;
@@ -74,16 +74,16 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* 🌟 4. 先生の画像エリア：ゴールド枠の真ん中にパーセント指定で完全固定 */
+        /* 🌟 4. 先生の画像エリア：スマホ画面でジャストセンターになるよう位置を変更 */
         .avatar-container {
-            width: 42%; /* 👈 画面幅に合わせて自動追従するサイズ */
+            width: 42.5%; /* 👈 丸枠に綺麗に収まるサイズ */
             aspect-ratio: 1 / 1;
             position: absolute;
             
-            /* 👈 カーテン画像（design.png）の中での絶対的な中心座標を指定 */
-            top: 50%;
+            /* 👈 スマホ画面のズレを相殺する絶妙なパーセント位置にロック */
+            top: 53.5%;
             left: 50%;
-            transform: translate(-50%, -51%); /* 微調整を含んだ黄金のセンター配置 */
+            transform: translate(-50%, -50%);
             
             display: flex;
             justify-content: center;
@@ -100,13 +100,13 @@
             border: 2px solid rgba(229, 192, 123, 0.4);
         }
 
-        /* 🌟 5. 先生の名前：ゴールド枠のすぐ下にパーセントで完全固定 */
+        /* 🌟 5. 先生の名前：スマホ画面でゴールド枠のすぐ下になるようにロック */
         .teacher-name-box {
             width: 260px;           
             position: absolute;
             
-            /* 👈 画像下部にパーセントで配置をロック。これで絶対にズレません */
-            bottom: 3.5%;
+            /* 👈 名札の位置もスマホに最適化 */
+            bottom: 5%;
             left: 50%;
             transform: translateX(-50%);
             
