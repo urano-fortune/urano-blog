@@ -33,11 +33,10 @@
             flex-direction: column;
         }
 
-        /* 🌟 【スマホ特化】上部ステージエリア：縦横比をスマホ画面の実績値にジャストフィット */
+        /* 【スマホ特化】上部ステージエリア */
         .stage-container {
             width: 100%;
             position: relative;
-            /* 👈 スマホのスクリーンショット画像から割り出した、最もズレない比率に変更 */
             aspect-ratio: 480 / 560; 
             background-image: url("design.png");
             background-size: 100% 100%;
@@ -74,15 +73,17 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* 🌟 4. 先生の画像エリア：スマホ画面でジャストセンターになるよう位置を変更 */
+        /* 🌟 4. 先生の画像エリア：元画像の左上ズレを直すため、数値を微調整 */
         .avatar-container {
-            width: 42.5%; /* 👈 丸枠に綺麗に収まるサイズ */
+            width: 42.5%; 
             aspect-ratio: 1 / 1;
             position: absolute;
             
-            /* 👈 スマホ画面のズレを相殺する絶妙なパーセント位置にロック */
-            top: 53.5%;
-            left: 50%;
+            /* 👈 【ここを修正！】
+               左にズレていたのを直すために left を 50% から「50.6%」に右へ移動、
+               上にズレていたのを直すために top を 53.5% から「53.8%」に下へ移動させました */
+            top: 53.8%;
+            left: 50.6%;
             transform: translate(-50%, -50%);
             
             display: flex;
@@ -100,13 +101,11 @@
             border: 2px solid rgba(229, 192, 123, 0.4);
         }
 
-        /* 🌟 5. 先生の名前：スマホ画面でゴールド枠のすぐ下になるようにロック */
+        /* 🌟 5. 先生の名前：画像位置に合わせて1%だけ微調整 */
         .teacher-name-box {
             width: 260px;           
             position: absolute;
-            
-            /* 👈 名札の位置もスマホに最適化 */
-            bottom: 5%;
+            bottom: 4.5%; /* 👈 画像を少し下げたので、名前の上のラインと被らないよう5%から4.5%に調整 */
             left: 50%;
             transform: translateX(-50%);
             
