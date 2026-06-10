@@ -30,7 +30,7 @@
             background-size: 100% auto; 
             background-position: center top;
             background-repeat: no-repeat;
-            background-color: #041c13; 
+            background-color: #041c13; /* design.pngの下端の色と同化 */
             padding-bottom: 80px;
             box-shadow: 0 0 40px rgba(0,0,0,0.95);
             min-height: 100vh;
@@ -66,7 +66,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* 先生の画像エリア：背景のゴールド枠の内側にぴったりはめ込む */
+        /* 🌟 先生の画像エリア：手前に丸く切り抜いて表示する設定に修正 */
         .avatar-container {
             width: 250px; 
             height: 250px;
@@ -79,25 +79,25 @@
         .avatar-img {
             width: 196px;  
             height: 196px;
-            border-radius: 50%;
-            object-fit: cover;
+            border-radius: 50%; /* 写真自体をきれいな正円に丸めます */
+            object-fit: cover; /* 縦横比がズレても自動で中央を綺麗にくり抜く設定 */
+            
+            /* 👈 枠の奥に隠れてしまわないよう、しっかり手前に表示させます */
             position: relative;
-            z-index: -1; 
-            background-color: #061e14;
+            z-index: 2; 
+            
+            /* 👈 写真のまわりにうっすらゴールドの光彩をつけて、背景のゴールド枠と馴染ませます */
+            box-shadow: 0 0 20px rgba(229, 192, 123, 0.6); 
+            border: 2px solid rgba(229, 192, 123, 0.4);
         }
 
-        /* 🌟 3. 先生の名前：横幅を名前サイズに絞り、ゴールド枠から完全に独立させて引き下げ */
+        /* 3. 先生の名前：横幅を名前サイズに絞り、コンパクトに独立 */
         .teacher-name-box {
-            width: 260px;           /* 👈 横幅を画面端まで広げず、名前の幅より少し長いくらいに固定 */
-            margin: 45px auto 30px; /* 👈 上の余白を 25px から 45px へ大幅拡張してバシッと下に下げました */
-            
-            /* 極薄のシースルー背景 */
+            width: 260px;           
+            margin: 45px auto 30px; 
             background: linear-gradient(to right, rgba(4, 28, 19, 0) 0%, rgba(4, 28, 19, 0.3) 15%, rgba(4, 28, 19, 0.3) 85%, rgba(4, 28, 19, 0) 100%);
-            
-            /* 上下のゴールドラインも、この260pxの幅の中だけで上品に収まります */
             border-top: 1px solid rgba(229, 192, 123, 0.4);
             border-bottom: 1px solid rgba(229, 192, 123, 0.4);
-            
             padding: 6px 0;         
             text-align: center;
         }
