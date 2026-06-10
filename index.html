@@ -73,19 +73,14 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* 🌟 4. 先生の画像エリア：元画像の左上ズレを直すため、数値を微調整 */
+        /* 4. 先生の画像エリア：ゴールド枠の真ん中にパーセント指定で完全固定 */
         .avatar-container {
             width: 42.5%; 
             aspect-ratio: 1 / 1;
             position: absolute;
-            
-            /* 👈 【ここを修正！】
-               左にズレていたのを直すために left を 50% から「50.6%」に右へ移動、
-               上にズレていたのを直すために top を 53.5% から「53.8%」に下へ移動させました */
-            top: 54.5%;
+            top: 53.8%;
             left: 50.6%;
             transform: translate(-50%, -50%);
-            
             display: flex;
             justify-content: center;
             align-items: center;
@@ -99,33 +94,43 @@
             z-index: 2; 
             box-shadow: 0 0 20px rgba(229, 192, 123, 0.6); 
             border: 2px solid rgba(229, 192, 123, 0.4);
-            transform: scale(1.15);
+            transform: scale(1.15); /* 🌟方法1の1.15倍拡大を適用中 */
         }
 
-        /* 🌟 5. 先生の名前：画像位置に合わせて1%だけ微調整 */
-        .teacher-name-box {
-            width: 260px;           
+        /* 🌟 5. 先生の名前ボックス：名前の長さに合わせて「自動で伸び縮み」する外枠に変身 */
+        .teacher-name-wrap {
+            width: 100%;
             position: absolute;
-            bottom: 4.5%; /* 👈 画像を少し下げたので、名前の上のラインと被らないよう5%から4.5%に調整 */
+            bottom: 4.5%;
             left: 50%;
             transform: translateX(-50%);
+            text-align: center; /* 中のボックスを中央に寄せる */
+        }
+
+        .teacher-name-box {
+            display: inline-block;  /* 👈 【最重要】幅固定を消し、名前の長さに合わせて自動で伸び縮みさせる */
+            max-width: 90%;         /* 👈 どんなに名前が長くてもスマホ画面からハミ出さないためのブレーキ */
+            padding: 4px 25px;      /* 👈 左右に程よい余白を作ってネームプレート感をアップ */
             
-            background: linear-gradient(to right, rgba(4, 28, 19, 0) 0%, rgba(4, 28, 19, 0.3) 15%, rgba(4, 28, 19, 0.3) 85%, rgba(4, 28, 19, 0) 100%);
+            /* 極薄のシースルー背景 */
+            background: linear-gradient(to right, rgba(4, 28, 19, 0) 0%, rgba(4, 28, 19, 0.35) 15%, rgba(4, 28, 19, 0.35) 85%, rgba(4, 28, 19, 0) 100%);
+            
+            /* 上下のゴールドラインも、名前の長さに合わせて自動でピタッと伸縮します */
             border-top: 1px solid rgba(229, 192, 123, 0.4);
             border-bottom: 1px solid rgba(229, 192, 123, 0.4);
-            padding: 6px 0;         
-            text-align: center;
         }
         
+        /* 🌟 先生の名前テキスト：改行を防ぎ、文字サイズを少しだけ最適化 */
         .teacher-name {
-            font-size: 25px;        
+            font-size: 20px;        /* 👈 長い名前や絵文字でも1行に美しく収まるように少しだけスリムに */
             font-weight: bold;
-            display: inline-block;
-            letter-spacing: 2px;
+            white-space: nowrap;    /* 👈 【最重要】どれだけ長くなっても、途中で絶対に自動改行させない指定 */
+            letter-spacing: 1px;
             background: linear-gradient(to bottom, #ffffff 0%, #ffeaa7 45%, #d4af37 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.8));
+            vertical-align: middle; /* 絵文字と文字の縦のズレを綺麗に揃える */
         }
 
         /* 下部エリア（メッセージ等が配置される場所） */
@@ -205,8 +210,10 @@
             <img class="avatar-img" src="sensei.png" alt="先生のお写真">
         </div>
 
-        <div class="teacher-name-box">
-            <div class="teacher-name">🪭🥀四月一日 侑子〈ﾜﾀﾇｷ ﾕｳｺ〉🪭🥀 先生</div>
+        <div class="teacher-name-wrap">
+            <div class="teacher-name-box">
+                <div class="teacher-name">yoko 先生</div>
+            </div>
         </div>
     </div>
 
