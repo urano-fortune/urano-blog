@@ -94,43 +94,57 @@
             z-index: 2; 
             box-shadow: 0 0 20px rgba(229, 192, 123, 0.6); 
             border: 2px solid rgba(229, 192, 123, 0.4);
-            transform: scale(1.15); /* 🌟方法1の1.15倍拡大を適用中 */
+            transform: scale(1.15); 
         }
 
-        /* 🌟 5. 先生の名前ボックス：名前の長さに合わせて「自動で伸び縮み」する外枠に変身 */
+        /* 5. 先生の名前ボックス：自動で伸縮する2重構造 */
         .teacher-name-wrap {
             width: 100%;
             position: absolute;
-            bottom: 4.5%;
+            bottom: 3.5%; /* 👈 2行化で少し縦幅が広がるため、下のラインに被らないよう4.5%から3.5%に微調整 */
             left: 50%;
             transform: translateX(-50%);
-            text-align: center; /* 中のボックスを中央に寄せる */
+            text-align: center; 
         }
 
         .teacher-name-box {
-            display: inline-block;  /* 👈 【最重要】幅固定を消し、名前の長さに合わせて自動で伸び縮みさせる */
-            max-width: 90%;         /* 👈 どんなに名前が長くてもスマホ画面からハミ出さないためのブレーキ */
-            padding: 4px 25px;      /* 👈 左右に程よい余白を作ってネームプレート感をアップ */
-            
-            /* 極薄のシースルー背景 */
-            background: linear-gradient(to right, rgba(4, 28, 19, 0) 0%, rgba(4, 28, 19, 0.35) 15%, rgba(4, 28, 19, 0.35) 85%, rgba(4, 28, 19, 0) 100%);
-            
-            /* 上下のゴールドラインも、名前の長さに合わせて自動でピタッと伸縮します */
+            display: inline-block;  
+            max-width: 92%;         
+            padding: 6px 20px;      /* 👈 2行のバランスが美しくなるよう上下左右の余白を最適化 */
+            background: linear-gradient(to right, rgba(4, 28, 19, 0) 0%, rgba(4, 28, 19, 0.4) 15%, rgba(4, 28, 19, 0.4) 85%, rgba(4, 28, 19, 0) 100%);
             border-top: 1px solid rgba(229, 192, 123, 0.4);
             border-bottom: 1px solid rgba(229, 192, 123, 0.4);
         }
         
-        /* 🌟 先生の名前テキスト：改行を防ぎ、文字サイズを少しだけ最適化 */
+        /* 🌟 先生の名前全体を囲むベース：文字サイズと文字影を適用 */
         .teacher-name {
-            font-size: 20px;        /* 👈 長い名前や絵文字でも1行に美しく収まるように少しだけスリムに */
+            font-size: 19px;        /* 👈 長い名前と絵文字が左右のカーテンにぶつからないベストサイズ */
             font-weight: bold;
-            white-space: nowrap;    /* 👈 【最重要】どれだけ長くなっても、途中で絶対に自動改行させない指定 */
             letter-spacing: 1px;
+            filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.8));
+            line-height: 1.5;       /* 改行したときの行間を綺麗に保つ */
+        }
+
+        /* 🌟 【超重要】名前のテキストだけをリッチなゴールドに染める指定（絵文字は染めない） */
+        .name-text {
             background: linear-gradient(to bottom, #ffffff 0%, #ffeaa7 45%, #d4af37 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.8));
-            vertical-align: middle; /* 絵文字と文字の縦のズレを綺麗に揃える */
+            white-space: nowrap;    /* お名前単体は絶対に途中で改行させない */
+        }
+
+        /* 🌟 後ろに続く「先生」の文字：お名前より一回り小さくして上品に2行目に配置 */
+        .suffix-text {
+            font-size: 16px;
+            color: #ffeaa7;         /* 👈 上品な薄ゴールドベタ。これにより視認性が100%確保されます */
+            display: inline-block;
+            margin-top: 2px;
+            letter-spacing: 4px;    /* 「先生」の文字が詰まって見えないように少し広げる */
+        }
+
+        /* 絵文字の共通調整：文字と縦位置を綺麗に揃える */
+        .teacher-name span, .teacher-name emoji {
+            vertical-align: middle;
         }
 
         /* 下部エリア（メッセージ等が配置される場所） */
@@ -212,7 +226,10 @@
 
         <div class="teacher-name-wrap">
             <div class="teacher-name-box">
-                <div class="teacher-name">🪭🥀四月一日 侑子〈ﾜﾀﾇｷ ﾕｳｺ〉🪭🥀 先生</div>
+                <div class="teacher-name">
+                    🪭🥀<span class="name-text">四月一日 侑子〈ﾜﾀﾇｷ ﾕｳｺ〉</span>🪭🥀<br>
+                    <span class="suffix-text">先生</span>
+                </div>
             </div>
         </div>
     </div>
