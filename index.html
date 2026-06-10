@@ -21,23 +21,27 @@
             padding: 0;
         }
 
-        /* 🌟 wrapper：スマホ枠。2枚目のデザイン画像をここに埋め込む */
-        .wrapper {
-            width: 100%;
-            max-width: 480px;
-            margin: 0 auto;
-            
-            /* 2枚目の画像をスマホ枠の背景として設定 */
-            background-image: url("design.png");
-            background-size: 100% auto; /* 横幅ぴったりに合わせる */
-            background-position: center top;
-            background-repeat: no-repeat;
-            background-color: transparent; /* 下部はbodyの星空をそのまま透過させる */
-            
-            padding-bottom: 80px;
-            box-shadow: 0 0 40px rgba(0,0,0,0.8);
-            min-height: 100vh;
-        }
+      /* 🌟 アプリ内表示に最適化した縦長コンテナ（中央のコンテンツ枠） */
+.wrapper {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    
+    /* 2枚目の画像をスマホ枠の背景として設定 */
+    background-image: url("design.png");
+    background-size: 100% auto; 
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: transparent; 
+    
+    padding-bottom: 80px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    min-height: 100vh;
+
+    /* 🌟 修正の主役：CSSで下端のつなぎ目をフワッと消し去るグラデーションマスク */
+    -webkit-mask-image: linear-gradient(to bottom, #000 70%, rgba(0, 0, 0, 0) 85%);
+    mask-image: linear-gradient(to bottom, #000 70%, rgba(0, 0, 0, 0) 85%);
+}
 
         /* 上部装飾エリア：目標デザインの文字位置に合わせる調整 */
         .top-deco {
