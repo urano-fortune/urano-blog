@@ -36,34 +36,31 @@
             min-height: 100vh;
         }
 
-        /* 🌟 上部装飾エリア：文字数が増えたため、開始位置を少し上に上げてシャンデリアの下に綺麗に収めます */
+        /* 上部装飾エリア */
         .top-deco {
             text-align: center;
             padding-top: 50px; 
         }
 
-        /* 🌟 1. 先生のキャッチコピー：行間や文字サイズを徹底調整 */
+        /* 先生のキャッチコピー（ゴールドグラデーション） */
         .catch-copy {
-            font-size: 15px; /* 👈 「ウラーノ事務局オススメ」のサイズ。小さくして高級感を演出 */
+            font-size: 15px; 
             font-weight: bold;
             text-align: center;
-            color: #ffeaa7; /* 1行目は上品な薄いゴールドベタ */
+            color: #ffeaa7; 
             margin: 0 20px;
             letter-spacing: 1.5px;
             line-height: 1.3;
             filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.9));
         }
         
-        /* 👈 「お客様からのご支持の高い」「大人気先生のご紹介」の2段落の指定 */
         .catch-copy span {
-            font-size: 21px; /* 👈 文字が潰れず、かつカーテンにぶつからない絶妙なサイズ */
+            font-size: 21px; 
             font-weight: bold;
             display: block;
-            margin-top: 6px; /* 1行目との間隔 */
+            margin-top: 6px; 
             letter-spacing: 1px;
             line-height: 1.4;
-            
-            /* 美しいゴールドグラデーションを適用 */
             background: linear-gradient(to bottom, #ffffff 0%, #ffeaa7 40%, #d4af37 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -73,7 +70,7 @@
         .avatar-container {
             width: 250px; 
             height: 250px;
-            margin: 25px auto 10px; /* 👈 文字量増加に合わせて上の余白を30pxから25pxに微調整 */
+            margin: 25px auto 10px; 
             position: relative;
             display: flex;
             justify-content: center;
@@ -89,16 +86,30 @@
             background-color: #061e14;
         }
 
-        /* 先生の名前 */
+        /* 🌟 3. 先生の名前：見やすさ抜群の「背景ラベル付き」に進化 */
+        .teacher-name-box {
+            width: 100%;
+            /* 👈 背景のキラキラと文字を分離する、高級感のある深緑のシースルー帯 */
+            background: linear-gradient(to right, rgba(2, 20, 13, 0) 0%, rgba(2, 20, 13, 0.8) 25%, rgba(2, 20, 13, 0.8) 75%, rgba(2, 20, 13, 0) 100%);
+            padding: 10px 0;
+            margin-top: 15px;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        
         .teacher-name {
             font-size: 26px;
             font-weight: bold;
-            text-align: center;
-            color: #ffffff;
-            margin-top: 15px;
-            margin-bottom: 35px; 
+            display: inline-block;
             letter-spacing: 2px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.9); 
+            
+            /* 👈 お名前も白文字からリッチなゴールドグラデーションに変更 */
+            background: linear-gradient(to bottom, #ffffff 0%, #ffeaa7 45%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            /* 文字の輪郭をさらにクッキリさせる影 */
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.8));
         }
 
         /* メッセージボックス */
@@ -169,11 +180,11 @@
     </div>
 
     <div class="avatar-container">
-        <img class="avatar-img" src="https://via.placeholder.com/200" alt="先生のお写真">
+        <img class="avatar-img" src="sensei.png" alt="先生のお写真">
     </div>
 
-    <div class="teacher-name">
-        yoko 先生
+    <div class="teacher-name-box">
+        <div class="teacher-name">yoko 先生</div>
     </div>
 
     <div class="message-section">
@@ -189,7 +200,7 @@
 
 <span class="highlight">「話したい時にすぐ相談できる。」</span>その安心感はケアアプリでも随一の先生となっています。さらに、占いや思念解読に加えて、yoko先生は高い<span class="highlight">"傾聴力"</span>をお持ちです。
 
-相談者様のお気持ちに寄り添いながら、丁寧に向き合われるその姿勢が多くの方に深い安心と信頼を届けています。ぜひ一度、ご相談ください。</div>
+相談者様のお気持ちに寄り添いながら、丁寧向き合われるその姿勢が多くの方に深い安心と信頼を届けています。ぜひ一度、ご相談ください。</div>
     </div>
 
     <div class="action-area">
