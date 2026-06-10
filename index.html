@@ -21,55 +21,59 @@
             padding: 0;
         }
 
-        /* 2. wrapper：スマホ枠（下部まで深い緑のステージで一体化） */
+        /* 2. wrapper：スマホ枠 */
         .wrapper {
             width: 100%;
             max-width: 480px;
             margin: 0 auto;
-            
-            /* 上部に 2枚目のデザイン画像を配置 */
             background-image: url("design.png");
             background-size: 100% auto; 
             background-position: center top;
             background-repeat: no-repeat;
-            background-color: #041c13; /* design.pngの下端の色と同化 */
-            
+            background-color: #041c13; 
             padding-bottom: 80px;
             box-shadow: 0 0 40px rgba(0,0,0,0.95);
             min-height: 100vh;
         }
 
-        /* 上部装飾エリア */
+        /* 🌟 上部装飾エリア：文字数が増えたため、開始位置を少し上に上げてシャンデリアの下に綺麗に収めます */
         .top-deco {
             text-align: center;
-            padding-top: 55px; 
+            padding-top: 50px; 
         }
 
-        /* 先生のキャッチコピー（ゴールドグラデーション） */
+        /* 🌟 1. 先生のキャッチコピー：行間や文字サイズを徹底調整 */
         .catch-copy {
-            font-size: 18px;
+            font-size: 15px; /* 👈 「ウラーノ事務局オススメ」のサイズ。小さくして高級感を演出 */
             font-weight: bold;
             text-align: center;
-            background: linear-gradient(to bottom, #ffeaa7 0%, #dfe6e9 50%, #d4af37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffeaa7; /* 1行目は上品な薄いゴールドベタ */
             margin: 0 20px;
-            letter-spacing: 2px;
-            line-height: 1.4;
+            letter-spacing: 1.5px;
+            line-height: 1.3;
             filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.9));
         }
+        
+        /* 👈 「お客様からのご支持の高い」「大人気先生のご紹介」の2段落の指定 */
         .catch-copy span {
-            font-size: 24px;
+            font-size: 21px; /* 👈 文字が潰れず、かつカーテンにぶつからない絶妙なサイズ */
+            font-weight: bold;
             display: block;
-            margin-top: 2px;
+            margin-top: 6px; /* 1行目との間隔 */
             letter-spacing: 1px;
+            line-height: 1.4;
+            
+            /* 美しいゴールドグラデーションを適用 */
+            background: linear-gradient(to bottom, #ffffff 0%, #ffeaa7 40%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* 先生の画像エリア：背景のゴールド枠の内側にぴったりはめ込む */
         .avatar-container {
             width: 250px; 
             height: 250px;
-            margin: 30px auto 10px; 
+            margin: 25px auto 10px; /* 👈 文字量増加に合わせて上の余白を30pxから25pxに微調整 */
             position: relative;
             display: flex;
             justify-content: center;
@@ -81,23 +85,23 @@
             border-radius: 50%;
             object-fit: cover;
             position: relative;
-            z-index: -1; /* 画像のゴールド枠より奥に潜り込ませる */
+            z-index: -1; 
             background-color: #061e14;
         }
 
-        /* 🌟 3. 先生の名前：不要な装飾や英語用余白をスッキリ削って美しく調整 */
+        /* 先生の名前 */
         .teacher-name {
             font-size: 26px;
             font-weight: bold;
             text-align: center;
             color: #ffffff;
             margin-top: 15px;
-            margin-bottom: 35px; /* 👈 英語を消した分、メッセージ欄との間隔を少しスマートに調整 */
+            margin-bottom: 35px; 
             letter-spacing: 2px;
             text-shadow: 0 2px 8px rgba(0,0,0,0.9); 
         }
 
-        /* メッセージボックス：深緑のテーブルに馴染むシースルーブラック */
+        /* メッセージボックス */
         .message-section {
             margin: 25px 20px;
             padding: 25px 20px;
@@ -159,7 +163,8 @@
     <div class="top-deco">
         <h1 class="catch-copy">
             ウラーノ事務局オススメ
-            <span>お客様からのご支持の高い大人気先生のご紹介</span>
+            <span>お客様からのご支持の高い</span>
+            <span>大人気先生のご紹介</span>
         </h1>
     </div>
 
@@ -168,7 +173,7 @@
     </div>
 
     <div class="teacher-name">
-        ◯◯ 先生
+        yoko 先生
     </div>
 
     <div class="message-section">
@@ -178,7 +183,7 @@
 
     <div class="message-section">
         <h2 class="section-title">事務局からの紹介メッセージ</h2>
-        <div class="message-text">ウラーノ殿堂入りのyoko先生は、<span class="highlight">圧倒的な実績と鑑定力</span>で多くのお客様からご相談をいただいています。
+        <div class="message-text">ケアアプリ殿堂入りのyoko先生は、<span class="highlight">圧倒的な実績と鑑定力</span>で多くのお客様からご相談をいただいています。
 
 レビューにも感謝や喜びの声が絶えず寄せられており、人気の高さがうかがえる先生です。また、yoko先生の強みは鑑定力だけではなく、その<span class="highlight">対応の早さや在籍時間の長さ</span>も魅力の一つ。
 
