@@ -26,7 +26,7 @@
             width: 100%;
             max-width: 480px;
             margin: 0 auto;
-            background-color: #041c13; /* 下端の色と同化 */
+            background-color: #041c13; 
             box-shadow: 0 0 40px rgba(0,0,0,0.95);
             min-height: 100vh;
             display: flex;
@@ -73,7 +73,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* 4. 先生の画像エリア：ゴールド枠の真ん中にパーセント指定で完全固定 */
+        /* 4. 先生の画像エリア：ゴールド枠の真ん中に完全固定 */
         .avatar-container {
             width: 42.5%; 
             aspect-ratio: 1 / 1;
@@ -97,11 +97,12 @@
             transform: scale(1.15); 
         }
 
-        /* 5. 先生の名前ボックス：自動で伸縮する2重構造 */
+        /* 🌟 5. 先生の名前ボックス：被りを避けるためにさらに位置を引き下げ */
         .teacher-name-wrap {
             width: 100%;
             position: absolute;
-            bottom: 3.5%; /* 👈 2行化で少し縦幅が広がるため、下のラインに被らないよう4.5%から3.5%に微調整 */
+            /* 👈 スマホ画面でゴールドフレームに被らないよう、3.5%からさらに下げて「1.0%」へ */
+            bottom: 1.0%;
             left: 50%;
             transform: translateX(-50%);
             text-align: center; 
@@ -109,45 +110,46 @@
 
         .teacher-name-box {
             display: inline-block;  
-            max-width: 92%;         
-            padding: 6px 20px;      /* 👈 2行のバランスが美しくなるよう上下左右の余白を最適化 */
+            max-width: 95%;         
+            padding: 4px 15px;      
             background: linear-gradient(to right, rgba(4, 28, 19, 0) 0%, rgba(4, 28, 19, 0.4) 15%, rgba(4, 28, 19, 0.4) 85%, rgba(4, 28, 19, 0) 100%);
             border-top: 1px solid rgba(229, 192, 123, 0.4);
             border-bottom: 1px solid rgba(229, 192, 123, 0.4);
         }
         
-        /* 🌟 先生の名前全体を囲むベース：文字サイズと文字影を適用 */
+        /* 🌟 先生の名前全体：15pxに縮小し、長い名前も絶対に1行に収める */
         .teacher-name {
-            font-size: 19px;        /* 👈 長い名前と絵文字が左右のカーテンにぶつからないベストサイズ */
+            font-size: 15px;        /* 👈 文字サイズをさらに小さく調整 */
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.8));
-            line-height: 1.5;       /* 改行したときの行間を綺麗に保つ */
+            line-height: 1.4;
+            white-space: nowrap;    /* 絵文字も含めて絶対に改行させない */
         }
 
-        /* 🌟 【超重要】名前のテキストだけをリッチなゴールドに染める指定（絵文字は染めない） */
+        /* 名前のテキストだけをゴールドに染める指定（絵文字はそのままの色） */
         .name-text {
             background: linear-gradient(to bottom, #ffffff 0%, #ffeaa7 45%, #d4af37 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            white-space: nowrap;    /* お名前単体は絶対に途中で改行させない */
         }
 
-        /* 🌟 後ろに続く「先生」の文字：お名前より一回り小さくして上品に2行目に配置 */
+        /* 後ろに続く「先生」の文字 */
         .suffix-text {
-            font-size: 16px;
-            color: #ffeaa7;         /* 👈 上品な薄ゴールドベタ。これにより視認性が100%確保されます */
+            font-size: 14px;
+            color: #ffeaa7;         
             display: inline-block;
-            margin-top: 2px;
-            letter-spacing: 4px;    /* 「先生」の文字が詰まって見えないように少し広げる */
+            margin-top: 1px;
+            letter-spacing: 4px;
+            font-weight: bold;
         }
 
-        /* 絵文字の共通調整：文字と縦位置を綺麗に揃える */
+        /* 絵文字の共通調整 */
         .teacher-name span, .teacher-name emoji {
             vertical-align: middle;
         }
 
-        /* 下部エリア（メッセージ等が配置される場所） */
+        /* 下部エリア */
         .content-area {
             padding-bottom: 80px;
         }
@@ -237,7 +239,7 @@
     <div class="content-area">
         <div class="message-section">
             <h2 class="section-title">先生からのメッセージ</h2>
-            <div class="message-text">ここに先生からのメッセージを掲載できます。また、過去の実績やレビューなどもあわせて紹介することでおお客様へアピールすることが可能です。</div>
+            <div class="message-text">ここに先生からのメッセージを掲載できます。また、過去の実績やレビューなどもあわせて紹介することでお客様へアピールすることが可能です。</div>
         </div>
 
         <div class="message-section">
