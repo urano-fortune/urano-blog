@@ -97,11 +97,10 @@
             transform: scale(1.15); 
         }
 
-        /* 🌟 5. 先生の名前ボックス：被りを避けるためにさらに位置を引き下げ */
+        /* 🌟 5. 先生の名前ボックス */
         .teacher-name-wrap {
             width: 100%;
             position: absolute;
-            /* 👈 スマホ画面でゴールドフレームに被らないよう、3.5%からさらに下げて「1.0%」へ */
             bottom: 1.0%;
             left: 50%;
             transform: translateX(-50%);
@@ -110,38 +109,42 @@
 
         .teacher-name-box {
             display: inline-block;  
-            max-width: 95%;         
-            padding: 4px 15px;      
-            background: linear-gradient(to right, rgba(4, 28, 19, 0) 0%, rgba(4, 28, 19, 0.4) 15%, rgba(4, 28, 19, 0.4) 85%, rgba(4, 28, 19, 0) 100%);
+            width: 95%;         
+            padding: 6px 15px;      
+            background: linear-gradient(to right, rgba(4, 28, 19, 0) 0%, rgba(4, 28, 19, 0.5) 15%, rgba(4, 28, 19, 0.5) 85%, rgba(4, 28, 19, 0) 100%);
             border-top: 1px solid rgba(229, 192, 123, 0.4);
             border-bottom: 1px solid rgba(229, 192, 123, 0.4);
         }
         
-        /* 🌟 先生の名前全体：15pxに縮小し、長い名前も絶対に1行に収める */
+        /* 🌟 先生の名前全体：大きく、太く、世界観に合う上品な明朝体へ変更 */
         .teacher-name {
-            font-size: 15px;        /* 👈 文字サイズをさらに小さく調整 */
-            font-weight: bold;
-            letter-spacing: 0.5px;
-            filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.8));
+            font-size: 21px;
+            font-weight: 700;
+            font-family: 'Times New Roman', Times, 'Georgia', 'Noto Serif JP', 'Shippori Mincho', 'Yu Mincho', YuMincho, serif;
+            letter-spacing: 1px;
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.9)) drop-shadow(0px 0px 8px rgba(0,0,0,0.8));
             line-height: 1.4;
-            white-space: nowrap;    /* 絵文字も含めて絶対に改行させない */
+            white-space: normal;
+            word-break: break-word;
         }
 
-        /* 名前のテキストだけをゴールドに染める指定（絵文字はそのままの色） */
+        /* 名前のテキストだけをゴールドに染める指定 */
         .name-text {
-            background: linear-gradient(to bottom, #ffffff 0%, #ffeaa7 45%, #d4af37 100%);
+            background: linear-gradient(to bottom, #ffffff 0%, #fff2cc 30%, #e5c07b 70%, #b89229 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
         /* 後ろに続く「先生」の文字 */
         .suffix-text {
-            font-size: 14px;
+            font-size: 15px;
             color: #ffeaa7;         
             display: inline-block;
-            margin-top: 1px;
-            letter-spacing: 4px;
+            margin-top: 4px;
+            letter-spacing: 6px;
             font-weight: bold;
+            font-family: sans-serif;
         }
 
         /* 絵文字の共通調整 */
@@ -154,7 +157,7 @@
             padding-bottom: 80px;
         }
 
-        /* メッセージボックス */
+        /* メッセージボックス（共通） */
         .message-section {
             margin: 25px 20px;
             padding: 25px 20px;
@@ -177,6 +180,31 @@
             color: #f7fafc;
             text-align: justify;
             white-space: pre-wrap;
+            letter-spacing: 0.5px;
+        }
+
+        /* 🌟 追加：「主に使用される占術」セクション用の調整 */
+        .scry-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px 10px; /* 上下・左右の隙間調整 */
+            margin-top: 15px;
+        }
+        .scry-item {
+            /* 2列で均等に並べる（5番目の奇数アイテムは自動的に左寄せ＆幅半分になります） */
+            width: 48.5%; 
+            text-align: center;
+            padding: 8px 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: #f6e05e; /* 画像2枚目に合わせた輝く黄色 */
+            background: rgba(4, 28, 19, 0.7); /* ボックス内の暗い背景色 */
+            border: 1px solid #ffd700; /* ゴールドの枠線 */
+            border-radius: 10px; /* 角丸効果 */
+            /* ゴールドの枠線を発光させるシャドウ効果 */
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.4), inset 0 0 4px rgba(255, 215, 0, 0.2);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
             letter-spacing: 0.5px;
         }
 
@@ -229,7 +257,7 @@
         <div class="teacher-name-wrap">
             <div class="teacher-name-box">
                 <div class="teacher-name">
-                    <span class="name-text">💍アレキ💍霊視と縁結び🔮</span><br>
+                    <span class="name-text">💍アレキ💍<br>霊視と縁結び🔮</span><br>
                     <span class="suffix-text">先生</span>
                 </div>
             </div>
@@ -249,6 +277,17 @@
         </div>
 
         <div class="message-section">
+            <h2 class="section-title">主に使用される占術</h2>
+            <div class="scry-container">
+                <div class="scry-item">霊視</div>
+                <div class="scry-item">霊聴</div>
+                <div class="scry-item">映像想念解読</div>
+                <div class="scry-item">タロット</div>
+                <div class="scry-item">数秘術</div>
+            </div>
+        </div>
+
+        <div class="message-section">
             <h2 class="section-title">事務局からの紹介メッセージ</h2>
             <div class="message-text">月間ランキング第1位に輝くアレキ先生は、<span class="highlight">圧倒的な実績と高い鑑定力</span>で、日々非常に多くのお客様からご相談をいただいています。
 アレキ先生の最大の強みは、<span class="highlight">いつでもすぐに繋がれる待機時間の長さと、スピーディーなメッセージ対応</span>です。
@@ -257,7 +296,7 @@
 また、先生ならではの独特の感性から生み出される鋭い視点や、非常に具体的な鑑定テーマも大きな魅力です。
 独自の切り口を豊富にお持ちのため、先生の鑑定に触れて「今まで気づかなかった現状の本質が見えた」と深く納得される方が多くいらっしゃいます。
 
-「今この瞬間の不安を解消したい」「頼れる先生にしっかりと必要なことを視て欲しい」という方は、<span class="highlight">ぜひ一度、アレキ先生にご相談ください。</span>
+「今この瞬間の不安を解消したい」「頼れる先生にしっかりと必要なことを視て欲しい」という方は、<span class="highlight">ぜひ一度、アレキ先生にご相談ください。</span></div>
         </div>
 
         <div class="action-area">
