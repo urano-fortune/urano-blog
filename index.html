@@ -116,7 +116,7 @@
             border-bottom: 1px solid rgba(229, 192, 123, 0.4);
         }
         
-        /* 🌟 先生の名前全体：1行に収めるため18pxに最適化 */
+        /* 先生の名前全体 */
         .teacher-name {
             font-size: 18px;
             font-weight: 700;
@@ -124,10 +124,10 @@
             letter-spacing: 0.5px;
             filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.9)) drop-shadow(0px 0px 8px rgba(0,0,0,0.8));
             line-height: 1.3;
-            white-space: nowrap;    /* 👈 1行で絶対維持 */
+            white-space: nowrap;
         }
 
-        /* 🌟 文字だけにゴールドを適用（絵文字本来の色を守るための指定） */
+        /* 文字だけにゴールドを適用 */
         .name-text {
             background: linear-gradient(to bottom, #ffffff 0%, #fff2cc 30%, #e5c07b 70%, #b89229 100%);
             -webkit-background-clip: text;
@@ -136,25 +136,26 @@
             vertical-align: middle;
         }
 
-        /* 🌟 絵文字だけを独立させて本来の色を維持 */
+        /* 絵文字だけを独立させて本来の色を維持 */
         .name-emoji {
             display: inline-block;
             vertical-align: middle;
-            -webkit-text-fill-color: initial; /* 👈 グラデーションの透明化を解除 */
+            -webkit-text-fill-color: initial; 
             font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
             margin: 0 2px;
         }
 
-        /* 🌟 後ろに続く「先生」の文字：バランスをとり大きく太く変更 */
+        /* 🌟 後ろに続く「先生」の文字：名前とフォントファミリーを統一して浮かないように修正 */
         .suffix-text {
-            font-size: 17px;         /* 👈 15pxから17pxへ拡大 */
+            font-size: 17px;         
             color: #ffeaa7;         
             display: inline-block;
             margin-top: 4px;
-            letter-spacing: 8px;     /* 👈 文字間を広げてさらに堂々と */
-            text-indent: 8px;        /* 中央揃えのズレ防止 */
-            font-weight: 900;        /* 👈 最も太く */
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            letter-spacing: 8px;     
+            text-indent: 8px;        
+            font-weight: 700;        
+            /* 👈 名前と同じ高級感のある明朝体（セリフ体）に揃えました */
+            font-family: 'Times New Roman', Times, 'Georgia', 'Noto Serif JP', 'Shippori Mincho', 'Yu Mincho', YuMincho, serif;
         }
 
         /* 下部エリア */
@@ -188,16 +189,17 @@
             letter-spacing: 0.5px;
         }
 
-        /* 「主に使用される占術」セクション用の調整 */
+        /* 🌟 占術セクション用の調整：スマホ前提の1列中央揃えに変更 */
         .scry-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 12px 10px; 
+            flex-direction: column; /* 👈 縦に並べる指定 */
+            align-items: center;    /* 👈 中央寄せ */
+            gap: 12px; 
             margin-top: 15px;
         }
         .scry-item {
-            width: 48.5%; 
+            width: 100%;
+            max-width: 300px;       /* 👈 スマホ画面で細すぎず太すぎない丁度いい横幅 */
             text-align: center;
             padding: 8px 0;
             font-size: 14px;
@@ -271,7 +273,7 @@
         <div class="message-section">
             <h2 class="section-title">先生からのメッセージ</h2>
             <div class="message-text">17,000件以上の鑑定を通じて、多くの方の恋愛や人生の転機に寄り添ってきました。
-おかげさまで8ヶ月連続月間ランキング1位をいただき、レビュー評価は平均★4.95。
+おかげさまで 8ヶ月連続月間ランキング1位をいただき、レビュー評価は平均★4.95。
 多くの高評価を頂戴しています。
 
 私は、表面的な言葉だけではなく、お相手の心の奥にある本音や迷い、これから動こうとしている未来の流れまで丁寧に読み解くことを大切にしています。
