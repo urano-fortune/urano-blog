@@ -50,7 +50,7 @@
             padding-top: 50px; 
         }
 
-        /* 先生のキャッチコピー */
+        /* 🌟 先生のキャッチコピー：背景に埋もれないよう、影（シャドウ）を大幅に強化 */
         .catch-copy {
             font-size: 15px; 
             font-weight: bold;
@@ -59,8 +59,11 @@
             margin: 0 20px;
             letter-spacing: 1.5px;
             line-height: 1.3;
-            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.9));
+            /* 👇 影を濃く、深くして文字をくっきり浮き上がらせます */
+            filter: drop-shadow(0px 3px 2px rgba(0,0,0,0.95)) drop-shadow(0px 1px 5px rgba(0,0,0,0.8));
         }
+        
+        /* 🌟 キャッチコピーの2行目・3行目：少し明るめのゴールドグラデーションにし、さらに影を重複適用 */
         .catch-copy span {
             font-size: 21px; 
             font-weight: bold;
@@ -68,9 +71,12 @@
             margin-top: 6px; 
             letter-spacing: 1px;
             line-height: 1.4;
-            background: linear-gradient(to bottom, #ffffff 0%, #ffeaa7 40%, #d4af37 100%);
+            /* 👇 白から明るいゴールドへのグラデーションにしてコントラストを高めました */
+            background: linear-gradient(to bottom, #ffffff 0%, #fff3cc 50%, #e5b842 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            /* 👇 文字の輪郭を際立たせるための強力な影 */
+            filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.95)); 
         }
 
         /* 4. 先生の画像エリア：ゴールド枠の真ん中に完全固定 */
@@ -145,7 +151,7 @@
             margin: 0 2px;
         }
 
-        /* 🌟 後ろに続く「先生」の文字：名前とフォントファミリーを統一して浮かないように修正 */
+        /* 「先生」の文字：名前とフォントファミリーを統一 */
         .suffix-text {
             font-size: 17px;         
             color: #ffeaa7;         
@@ -154,7 +160,6 @@
             letter-spacing: 8px;     
             text-indent: 8px;        
             font-weight: 700;        
-            /* 👈 名前と同じ高級感のある明朝体（セリフ体）に揃えました */
             font-family: 'Times New Roman', Times, 'Georgia', 'Noto Serif JP', 'Shippori Mincho', 'Yu Mincho', YuMincho, serif;
         }
 
@@ -189,17 +194,17 @@
             letter-spacing: 0.5px;
         }
 
-        /* 🌟 占術セクション用の調整：スマホ前提の1列中央揃えに変更 */
+        /* 占術セクション：スマホ前提の1列中央揃え */
         .scry-container {
             display: flex;
-            flex-direction: column; /* 👈 縦に並べる指定 */
-            align-items: center;    /* 👈 中央寄せ */
+            flex-direction: column; 
+            align-items: center;    
             gap: 12px; 
             margin-top: 15px;
         }
         .scry-item {
             width: 100%;
-            max-width: 300px;       /* 👈 スマホ画面で細すぎず太すぎない丁度いい横幅 */
+            max-width: 300px;       
             text-align: center;
             padding: 8px 0;
             font-size: 14px;
@@ -305,7 +310,7 @@
         </div>
 
         <div class="action-area">
-            <a href="urano://counselor?code=6461382" class="btn-chat">この先生に相談してみる</a>
+            <a href="ulano://chat/start" class="btn-chat">この先生に相談してみる</a>
         </div>
     </div>
 
